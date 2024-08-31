@@ -12,10 +12,7 @@ export const AppProvider = (props) => {
   return (
     <>
       <DispatchContext.Provider value={dispatch}>
-        <StateContext.Provider value={state}>
-          <InitData />
-          {children}
-        </StateContext.Provider>
+        <StateContext.Provider value={state}>{children}</StateContext.Provider>
       </DispatchContext.Provider>
     </>
   );

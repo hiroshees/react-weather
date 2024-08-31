@@ -5,25 +5,25 @@ import { DispatchContext } from './../providers/DispatchContext';
 import { WeatherBox } from './../blocks/WeatherBox';
 import { getWeatherByCityName } from './../providers/WeatherAPI';
 
-export const Osaka = () => {
-  const { weatherOsaka } = useContext(StateContext);
+export const Hokkaido = () => {
+  const { weatherHokkaido } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
 
   useEffect(() => {
     (async () => {
-      if (weatherOsaka !== undefined) {
+      if (weatherHokkaido !== undefined) {
         return;
       }
-      const data = await getWeatherByCityName('Osaka');
+      const data = await getWeatherByCityName('Hokkaido');
       dispatch({
         type: 'save',
         payload: {
-          name: 'weatherOsaka',
+          name: 'weatherHokkaido',
           data: data,
         },
       });
     })();
   }, []);
 
-  return weatherOsaka !== undefined && <WeatherBox data={weatherOsaka} />;
+  return weatherHokkaido !== undefined && <WeatherBox data={weatherHokkaido} />;
 };
